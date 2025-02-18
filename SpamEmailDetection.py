@@ -50,3 +50,16 @@ clf.fit(x_train, y_train)
 
 # Evaluate the model on the test data
 print(clf.score(x_test, y_test))
+
+# Predict the class of a new email from user input
+email_to_classify = input() # Select an email to classify from input of user
+print(email_to_classify) 
+email_text = email_to_classify.lower().translate(str.maketrans('', '', string.punctuation)).split() # Remove punctuation and split into words
+email_text = [stemmer.stem(word) for word in email_text if word not in stopwords_set] # Remove stopwords and stem the words
+email_text = ' '.join(email_text) # Join the words back into a single string
+
+email_corpus = [email_text] # Create a new corpus with the email text
+
+x_email = vectorizer.transform(email_corpus) # Convert the email corpus into a matrix of token counts
+
+print(clf.predict(x_email)) # Predict the class of the email
