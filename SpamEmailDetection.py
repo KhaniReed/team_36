@@ -34,3 +34,19 @@ for i in range(len(df)):
     text = [stemmer.stem(word) for word in text if word not in stopwords_set] # Remove stopwords and stem the words
     text = ' '.join(text) # Join the words back into a single string
     corpus.append(text) # Append the preprocessed text to the corpus list
+
+# Create a CountVectorizer to convert text data into numerical data
+vectorizer = CountVectorizer()
+
+x = vectorizer.fit_transform(corpus).toarray() # Convert the corpus into a matrix of token counts
+y = df.label_num 
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2) # Split the data into training and testing sets
+
+# Create a RandomForestClassifier and fit it to the training data
+clf = RandomForestClassifier(n_jobs=-1)
+
+clf.fit(x_train, y_train)
+
+# Evaluate the model on the test data
+print(clf.score(x_test, y_test))
