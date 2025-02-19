@@ -51,14 +51,16 @@ clf.fit(x_train, y_train)
 # Evaluate the model on the test data
 print(clf.score(x_test, y_test))
 
-# Predict the class of a new email from user input
-email_to_classify = input() # Select an email to classify from input of user
-email_text = email_to_classify.lower().translate(str.maketrans('', '', string.punctuation)).split() # Remove punctuation and split into words
-email_text = [stemmer.stem(word) for word in email_text if word not in stopwords_set] # Remove stopwords and stem the words
-email_text = ' '.join(email_text) # Join the words back into a single string
+# Predict the class of a new email
+def predictMessage(message):
+    message = message.lower().translate(str.maketrans('', '', string.punctuation)).split() # Remove punctuation and split into words
+    message = [stemmer.stem(word) for word in message if word not in stopwords_set] # Remove stopwords and stem the words
+    message = ' '.join(message) # Join the words back into a single string
+    message_corpus = [message] # Create a new corpus with the email text
+    x_message = vectorizer.transform(message_corpus) # Convert the email corpus into a matrix of token counts
+    return 'Spam' if clf.predict(x_message) == 1 else 'Not Spam'
 
-email_corpus = [email_text] # Create a new corpus with the email text
-
-x_email = vectorizer.transform(email_corpus) # Convert the email corpus into a matrix of token counts
-
-print(clf.predict(x_email)) # Predict the class of the email
+# Get user input and print the prediction
+email_text = input('Enter the email text: ')
+x_email = predictMessage(email_text)
+print(f'The email is: {x_email}')
