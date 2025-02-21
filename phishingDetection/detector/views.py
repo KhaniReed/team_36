@@ -113,7 +113,7 @@ print("URL Model Accuracy:", accuracy_score(y_url_test, url_model.predict(X_url_
     result = predict_phishing(user_input)
     print("Prediction:", result)'''
 
-def Home(request):
+'''def detection_tool(request):
     result = None
     if request.method == 'POST':
         form = MessageForm(request.POST)
@@ -123,4 +123,21 @@ def Home(request):
     else:
         form = MessageForm()
 
-    return render(request, 'home.html', {'form': form, 'result': result})
+    return render(request, 'detection_tool.html', {'form': form, 'result': result})'''
+
+def Home(request):
+    return render(request, 'home.html')
+
+def developer(request):
+    return render(request, 'developer.html')
+
+def detection(request):
+    result = None
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.cleaned_data['text']
+            result = predict_phishing(message)
+    else:
+        form = MessageForm()
+    return render(request, 'detection.html', {'form': form, 'result': result})
