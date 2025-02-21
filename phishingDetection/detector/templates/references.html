@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 80px; /* Add margin to avoid overlap with navbar */
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #6a11cb;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'developer' %}">Developer</a>
+        <a href="{% url 'detection' %}">Detection</a>
+        <a href="{% url 'references' %}">References</a>
+    </div>
+    <div class="container"> <!-- container for content (what you see)-->
+        <h1>References</h1>
+        <p>To develope this code we used a lot of open-sourced code, along with wathcing various youtube videos
+            and combined different aspects of each to create the final product. Below are some of the references we used:</p>
+            <p>1. <a href="https://youtu.be/I1refTZp-pg?si=Aqb7T0pT7BqAxQTo">YouTube Video 1 was used for the creation
+                of the URL detection model. Which we later combined to funtion in unison with the 
+                email detection model.
+            </a></p>
+            <p>2. <a href="https://youtu.be/nkPNQk4-3UE?si=ZlfbYw0ZL5rbRVoh">YouTube Video 2 was used for the creation
+                of the phsihing email detection model.
+            </a></p>
+            <p>3. <a href="https://youtu.be/O4HT06GTshQ?si=CI-SL8EISZut5Cjq">YouTube Video 3 was used for helping connect our 
+                python files to the html file. We also used it for setting up django and our initial html file,
+                which we later made small additions, such as creating a navigation menue to travers to 
+                different pages. In the description of the video there is a link to the html file used
+                in the video, which we used as a base to modify.
+            </a></p>
+            <p>4. <a href="https://youtu.be/HjoSNTa8eU8?si=2mFnkNchWcf6NfiB">Youtube Video 4 was used to help create our setup.txt file
+                which is used to install all the packages needed to run the code.
+            </a></p>
+            <p>5. <a href="https://youtu.be/KKVaUq-zqnQ?si=UBn9eazgn6Pm1mDx">Youtube Video 5 which we used to get more information
+                on how to train machine learning models to identify scam URLs. This video doesn't extensively go over
+                each model in depth, but it shows the code used to train it, which we used to then research the training
+                algorithms for each model.
+            </a></p>
+        </p>
+    </div>
+</body>
+</html>

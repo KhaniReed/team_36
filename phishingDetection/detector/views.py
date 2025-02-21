@@ -141,3 +141,6 @@ def detection(request):
     else:
         form = MessageForm()
     return render(request, 'detection.html', {'form': form, 'result': result})
+
+def references(request):
+    return render(request, 'references.html')
