@@ -9,13 +9,13 @@ Instructions:
 6. Next activate the virtual environment using the following command: .\myenv\Scripts\activate 
 7. Next you will need to install the following libraries:
 - First used the command, "python -m pip install -r setup.txt" - if this command does not install the required modules please manually install the listed modules below.
-- - pip install django
-- - pip install pandas scikit-learn
-- - pip install xgboost imbalanced-learn
+ - pip install django
+ - pip install pandas scikit-learn
+ - pip install xgboost imbalanced-learn
 8. Now that everything is set up next run the following commands start the webserver:
 - cd .\phishingDetection\
 - python manage.py runserver
-- - This command will take some time, but once you see the IP address 127.0.0.1:8000, hold ctrl+left-click to access the tool
+ - This command will take some time, but once you see the IP address 127.0.0.1:8000, hold ctrl+left-click to access the tool
 
 # Check-In
 
