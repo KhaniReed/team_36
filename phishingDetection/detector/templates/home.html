@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spam Detection</title>
+    <title>Phishing Detection</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <!-- head function -->
@@ -66,6 +66,11 @@
         font-size: 1.1em;
         cursor: pointer;
         transition: background-color 0.3s;
+        margin-right: 10px; /* Add margin to the right */
+    }
+
+    .btn:last-child {
+        margin-right: 0; /* Remove margin from the last button */
     }
 
     .btn:hover {
@@ -112,16 +117,19 @@
 </style>
 <body>
     <div class="container"> <!-- container for content (what you see)-->
-        <h1><i class="fas fa-shield-alt"></i> Spam Detection</h1>
-        <p>Enter your message below to check if it is spam or not.</p>
+        <h1><i class="fas fa-shield-alt"></i> Phishing Detection</h1>
+        <p>Enter the contents of an email you have received or a URL below to check if it is phishing or Legitimate.</p>
         <form method="post">
             {% csrf_token %} <!--security feature from django to prevent cross-site attacks-->
             {{form.as_p}} <!--displays the form fields-->
-            <button type="submit" class="btn"><i class="fas fa-check"></i> Check</button>
+            <div style="display: flex; justify-content: center;">
+                <button type="submit" class="btn"><i class="fas fa-check"></i> Check</button>
+                <button type="button" class="btn" onclick="document.querySelector('textarea').value = '';"><i class="fas fa-times"></i> Clear</button>
+            </div>
         </form>
         {% if result %} <!-- displays results-->
             <div class="result {{ result|lower }}">
-                <h2>The message is: {{result}}</h2>
+                <h2>The email or URL is: {{result}}</h2>
             </div>
         {% endif %}
     </div>

@@ -118,7 +118,7 @@ def Home(request):
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
-            message = form.cleaned_data['message']
+            message = form.cleaned_data['text']
             result = predict_phishing(message)
     else:
         form = MessageForm()
