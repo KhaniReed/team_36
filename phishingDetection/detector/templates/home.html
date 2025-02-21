@@ -119,7 +119,7 @@
             {{form.as_p}} <!--displays the form fields-->
             <button type="submit" class="btn"><i class="fas fa-check"></i> Check</button>
         </form>
-        {% if result %}
+        {% if result %} <!-- displays results-->
             <div class="result {{ result|lower }}">
                 <h2>The message is: {{result}}</h2>
             </div>
